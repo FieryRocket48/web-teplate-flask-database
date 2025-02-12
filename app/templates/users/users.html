@@ -1,0 +1,94 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-7 mx-auto">
+        <h4>{{ self.title() }}</h4>
+        <div class="col">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addUser">Add</button>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+ <div class="col-7 mx-auto">
+    <table class="table ">
+      <thead>
+        <tr>
+          <th scope="col" >#</th>
+          <th scope="col" >Name</th>
+          <th scope="col">Login</th>
+          <th scope="col">Group</th>
+          <th scope="col">Active</th>
+          <th scope="col" ></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.login }}</td>
+            <td>{{ user.group }}</td>
+            <td>{{ user.status }}</td>
+            <td>
+                <a href="{{ url_for('main.edit_user', guid=user.guid) }}" class="btn btn-sm btn-danger">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">ADD USER</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" enctype="multipart/form-data" class="form-control d-flex flex-column gap-2">
+            {{ form.csrf_token }}
+            {{ form.name.label(class="form-label")}}
+            {{ form.name(class="form-control", placeholder="Name") }}
+            {{ form.login.label(class="form-label") }}
+            {{ form.login(class="form-control", placeholder="Lonig") }}
+            {% if form.login.errors %}
+                <div class="invalid-feedback" style="display: block!important;">
+                    {% for error in form.login.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {{ form.group.label(class="form-label") }}
+            {{ form.group(class="form-control", placeholder="Права доступа") }}
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", placeholder="Password") }}
+            {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

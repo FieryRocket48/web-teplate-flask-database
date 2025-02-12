@@ -1,0 +1,31 @@
+@import url('fonts.css');
+
+
+body {
+    background-color: #e8f6ff;
+}
+
+body {
+    font-family: Pt Astra Sans, cans-serif;
+    font-weight: 400;
+}
+
+.hello{
+    text-align: center;
+}
+
+.header{
+    background: linear-gradient(92deg, #073660 55%, #99d3d1);
+}
+
+.mylogo{
+    width:60px;
+    height:60px;
+}
+
+.user-dropdown{
+    width: 100%; /* Ширина равна ширине родительского элемента (кнопки) */
+    min-width: auto; /* Отключаем минимальную ширину */
+    padding: 0; /* Убираем внутренние отступы */
+    margin-top: 0.5rem; /* Небольшой отступ от кнопки */
+}

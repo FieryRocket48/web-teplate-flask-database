@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+
+    <meta charset="UTF-8">
+    <title>Вход в систему</title>
+</head>
+<body>
+    <div class="logo">
+        <img src="{{ url_for('static', filename='img/logo.png') }}"  alt="logo">
+    </div>
+
+
+    <div>
+            <p> Project name</p>
+    </div>
+
+
+        <form method="post" class='login-form'>
+            {{ form.csrf_token }}
+            {% include 'users/_flash_logon.html' %}
+          <div class="flex-row">
+            {{ form.login(class="lf--input", id="username", placeholder="Логин") }}
+          </div>
+          <div class="flex-row">
+            {{ form.password(class="lf--input",id="password", placeholder="Пароль") }}
+          </div>
+             {{ form.remember.label(class="form-check") }} {{ form.remember }}
+          <div class="flex-row">
+              {{ form.submit(class="lf--submit") }}
+          </div>
+
+        </form>
+</body>
+</html>
+

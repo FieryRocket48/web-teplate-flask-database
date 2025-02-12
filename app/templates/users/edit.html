@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+
+
+{% block title %}Edit user{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-6 mx-auto">
+        <h4>{{ self.title() }} login: {{ login }}</h4>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-6 mx-auto">
+
+        <form method="post" enctype="multipart/form-data" class="form-control d-flex flex-column gap-2">
+            {{ form.csrf_token }}
+            {{ form.name.label(class="form-label")}}
+            {{ form.name(class="form-control", placeholder="Name") }}
+            {{ form.login(class="form-control ", placeholder="Lonig", readonly=True, type="hidden") }}
+            {% if form.login.errors %}
+                <div class="invalid-feedback" style="display: block!important;">
+                    {% for error in form.login.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {{ form.group.label(class="form-label") }}
+            {{ form.group(class="form-control", placeholder="Права доступа") }}
+
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-control", placeholder="Password") }}
+            {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
+            <div class="form-inline" style="display: flex; align-items: center; ">
+                {{ form.status.label(class="form-check-label mx-3", for="status") }}
+                {{ form.status(class="form-check") }}
+            </div>
+            {{ form.update(class="btn btn-primary") }}
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages != 'Необходима авторизация' %}
+        {% for category, message in messages %}
+            {% if message != 'Необходима авторизация' %}
+
+                <div id="alert" class="alert">
+                    <p>{{ message }}</p>
+                </div>
+
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
