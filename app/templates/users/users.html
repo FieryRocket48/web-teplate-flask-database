@@ -1,7 +1,7 @@
 {% extends 'main/base.html' %}
 
 
-{% block title %}Users{% endblock %}
+{% block title %}Пользователи{% endblock %}
 
 {% block content %}
 
@@ -9,7 +9,7 @@
     <div class="col-7 mx-auto">
         <h4>{{ self.title() }}</h4>
         <div class="col">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addUser">Add</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addUser">Добавить</button>
         </div>
         <hr>
     </div>
@@ -54,7 +54,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">ADD USER</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Новый пользователь</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
