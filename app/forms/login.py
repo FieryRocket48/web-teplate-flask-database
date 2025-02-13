@@ -15,13 +15,13 @@ class LoginForm(FlaskForm):
             raise ValidationError('Пользователь заблокирован')
 
 class CreateUser(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(),Length(min=4,)])
-    login = StringField('Login', validators=[DataRequired(),Length(min=4,)])
-    password = PasswordField('Password', validators=[DataRequired(),Length(min=8,)])
-    confirm_password = PasswordField('Confirm ', validators=[DataRequired(), EqualTo('password')])
-    group = SelectField('Groups', validators=[DataRequired()],
+    name = StringField('Имя', validators=[DataRequired(),Length(min=4,)])
+    login = StringField('Логин', validators=[DataRequired(),Length(min=4,)])
+    password = PasswordField('Пароль', validators=[DataRequired(),Length(min=8,)])
+    confirm_password = PasswordField('Подтверждение пароля', validators=[DataRequired(), EqualTo('password')])
+    group = SelectField('Группа доступа', validators=[DataRequired()],
                         choices=[ ('user', 'Пользователь'),('admin', 'Администратор')])
-    submit = SubmitField('Create')
+    submit = SubmitField('Создать')
 
 
     def validate_login(self, login):
@@ -31,11 +31,11 @@ class CreateUser(FlaskForm):
 
 
 class UpdateUser(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(),Length(min=4,)])
-    login = StringField('Login', validators=[DataRequired(),Length(min=4,)])
-    password = PasswordField('Password')
-    confirm_password = PasswordField('Confirm ', validators=[ EqualTo('password')])
-    group = SelectField('Groups', validators=[DataRequired()],
+    name = StringField('Имя', validators=[DataRequired(),Length(min=4,)])
+    login = StringField('Логин', validators=[DataRequired(),Length(min=4,)])
+    password = PasswordField('Пароль')
+    confirm_password = PasswordField('Подтверждение пароля ', validators=[ EqualTo('password')])
+    group = SelectField('Группа доступа', validators=[DataRequired()],
                         choices=[ ('user', 'Пользователь'),('admin', 'Администратор')])
-    status = BooleanField('Active user')
-    update = SubmitField('Save')
+    status = BooleanField('Активный')
+    update = SubmitField('Сохранить')

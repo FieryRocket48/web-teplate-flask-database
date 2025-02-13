@@ -21,10 +21,10 @@
       <thead>
         <tr>
           <th scope="col" >#</th>
-          <th scope="col" >Name</th>
-          <th scope="col">Login</th>
-          <th scope="col">Group</th>
-          <th scope="col">Active</th>
+          <th scope="col" >Имя</th>
+          <th scope="col">Логин</th>
+          <th scope="col">Группа</th>
+          <th scope="col">Активный</th>
           <th scope="col" ></th>
         </tr>
       </thead>
@@ -37,7 +37,7 @@
             <td>{{ user.group }}</td>
             <td>{{ user.status }}</td>
             <td>
-                <a href="{{ url_for('main.edit_user', guid=user.guid) }}" class="btn btn-sm btn-danger">Edit</a>
+                <a href="{{ url_for('main.edit_user', guid=user.guid) }}" class="btn btn-sm btn-danger">Изменить</a>
             </td>
         </tr>
         {% endfor %}
@@ -61,9 +61,9 @@
         <form method="post" enctype="multipart/form-data" class="form-control d-flex flex-column gap-2">
             {{ form.csrf_token }}
             {{ form.name.label(class="form-label")}}
-            {{ form.name(class="form-control", placeholder="Name") }}
+            {{ form.name(class="form-control", placeholder="Имя") }}
             {{ form.login.label(class="form-label") }}
-            {{ form.login(class="form-control", placeholder="Lonig") }}
+            {{ form.login(class="form-control", placeholder="Логин") }}
             {% if form.login.errors %}
                 <div class="invalid-feedback" style="display: block!important;">
                     {% for error in form.login.errors %}
@@ -72,15 +72,15 @@
                 </div>
             {% endif %}
             {{ form.group.label(class="form-label") }}
-            {{ form.group(class="form-control", placeholder="Права доступа") }}
+            {{ form.group(class="form-control", placeholder="Группа доступа") }}
             {{ form.password.label(class="form-label") }}
-            {{ form.password(class="form-control", placeholder="Password") }}
-            {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
+            {{ form.password(class="form-control", placeholder="Пароль") }}
+            {{ form.confirm_password(class="form-control", placeholder="Подтверждение пароля") }}
             {{ form.submit(class="btn btn-primary") }}
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
 
       </div>
     </div>

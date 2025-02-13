@@ -17,8 +17,8 @@
         <form method="post" enctype="multipart/form-data" class="form-control d-flex flex-column gap-2">
             {{ form.csrf_token }}
             {{ form.name.label(class="form-label")}}
-            {{ form.name(class="form-control", placeholder="Name") }}
-            {{ form.login(class="form-control ", placeholder="Lonig", readonly=True, type="hidden") }}
+            {{ form.name(class="form-control", placeholder="Имя") }}
+            {{ form.login(class="form-control ", placeholder="Логин", readonly=True, type="hidden") }}
             {% if form.login.errors %}
                 <div class="invalid-feedback" style="display: block!important;">
                     {% for error in form.login.errors %}
@@ -27,11 +27,11 @@
                 </div>
             {% endif %}
             {{ form.group.label(class="form-label") }}
-            {{ form.group(class="form-control", placeholder="Права доступа") }}
+            {{ form.group(class="form-control", placeholder="Группа доступа") }}
 
             {{ form.password.label(class="form-label") }}
-            {{ form.password(class="form-control", placeholder="Password") }}
-            {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
+            {{ form.password(class="form-control", placeholder="Пароль") }}
+            {{ form.confirm_password(class="form-control", placeholder="Подтверждение пароля") }}
             <div class="form-inline" style="display: flex; align-items: center; ">
                 {{ form.status.label(class="form-check-label mx-3", for="status") }}
                 {{ form.status(class="form-check") }}

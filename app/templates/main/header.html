@@ -14,9 +14,9 @@
       <li><a href="#" class="nav-link px-2 text-white">About</a></li>
       {% if current_user.group == "admin" %}
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link px-2 text-white dropdown-toggle" id="dropdownMenuSettings" role="button" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+        <a href="#" class="nav-link px-2 text-white dropdown-toggle" id="dropdownMenuSettings" role="button" data-bs-toggle="dropdown" aria-expanded="false">Настройки</a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuSettings">
-          <li><a class="dropdown-item" href="{{ url_for('main.users') }}">Users</a></li>
+          <li><a class="dropdown-item" href="{{ url_for('main.users') }}">Пользователи</a></li>
         </ul>
       </li>
       {% endif %}
