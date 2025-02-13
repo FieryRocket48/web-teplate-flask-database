@@ -32,8 +32,8 @@
         {{ current_user.name }}
       </a>
       <ul class="dropdown-menu user-dropdown" aria-labelledby="dropdownMenuUser">
-        <li><a class="dropdown-item" href="{{ url_for('main.edit_user', guid=current_user.guid) }}">Edit Profile</a></li>
-        <li><a class="dropdown-item" href="{{ url_for('main.logout') }}">Logout</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.edit_user', guid=current_user.guid) }}">Профиль</a></li>
+        <li><a class="dropdown-item" href="{{ url_for('main.logout') }}">Выйти</a></li>
       </ul>
     </div>
     {% endif %}
