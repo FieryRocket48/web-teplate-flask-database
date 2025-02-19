@@ -1,3 +1,4 @@
+from click import group
 from flask import Blueprint, render_template, send_from_directory, request, redirect, flash, url_for, abort
 from flask_login import logout_user, login_user, login_required, current_user
 
@@ -151,6 +152,6 @@ def edit_user(guid):
                         flash(f'Введённые пароли не совпадают!', "danger")
                     else:
                         flash(f'Возникла ошибка{item, error}!', "danger")
-        return render_template('users/edit.html',  form=form, login=user.login)
+        return render_template('users/edit.html',  form=form, login=user.login, group=user.group)
     else:
         abort(403)
