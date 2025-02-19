@@ -32,12 +32,13 @@
             {{ form.password.label(class="form-label") }}
             {{ form.password(class="form-control", placeholder="Пароль") }}
             {{ form.confirm_password(class="form-control", placeholder="Подтверждение пароля") }}
+            {% if current_user.group != group %}
             <div class="form-inline" style="display: flex; align-items: center; ">
                 {{ form.status.label(class="form-check-label mx-3", for="status") }}
                 {{ form.status(class="form-check") }}
             </div>
+            {% endif %}
             {{ form.update(class="btn btn-primary") }}
-
         </form>
     </div>
 </div>
